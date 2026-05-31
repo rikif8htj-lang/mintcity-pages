@@ -79,9 +79,32 @@
   <h2>お問い合わせ</h2>
   <div class="contact">
     <p>お問い合わせは下記のメールアドレスまでお願いします:</p>
-    <p><a href="mailto:rikif8htj@gmail.com">rikif8htj@gmail.com</a></p>
+    <!--
+      メールアドレスはスパムボット対策のため JavaScript で動的に生成しています。
+      JavaScript を無効化したブラウザでは表示されません (その場合は別途連絡手段をご検討ください)。
+    -->
+    <p id="contact-email">
+      <noscript>
+        <span style="color: #888;">[メールアドレス表示には JavaScript を有効にしてください]</span>
+      </noscript>
+    </p>
     <p style="font-size: 0.9em; color: #777;">※返信は数日いただく場合があります。あらかじめご了承ください。</p>
   </div>
+
+  <script>
+    // メールアドレス難読化: 分割した文字列を実行時に結合してリンク生成。
+    // 静的 HTML をクロールするスパムボットには見えない。
+    (function () {
+      var user = ['rikif', '8', 'hobby'].join('');
+      var domain = ['gmail', '.', 'com'].join('');
+      var addr = user + '@' + domain;   // @ = '@'
+      var a = document.createElement('a');
+      a.href = 'mai' + 'lto:' + addr;
+      a.textContent = addr;
+      var p = document.getElementById('contact-email');
+      if (p) { p.insertBefore(a, p.firstChild); }
+    })();
+  </script>
 
   <h2>関連ページ</h2>
   <ul>
